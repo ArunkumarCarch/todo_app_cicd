@@ -38,6 +38,7 @@ function App() {
       <h1>Todo App</h1>
       <p>Welcome Everyone</p>
       <p>one</p>
+      <p>two</p>
       <input
         type="text"
         placeholder="Enter a task"
