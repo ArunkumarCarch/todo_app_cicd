@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: arunkumarcarch/todo_api_image:latest  # or your actual tag
+          image: arunkumarcarch/todo_api_image:7278131d0739194de912c3ada1661d9b63232149
           ports:
             - containerPort: 8000
           env:
