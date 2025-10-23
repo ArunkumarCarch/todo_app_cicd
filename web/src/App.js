@@ -37,6 +37,7 @@ function App() {
     <div style={{ padding: "20px" }}>
       <h1>Todo App</h1>
       <p>Welcome Everyone</p>
+      <p>one</p>
       <input
         type="text"
         placeholder="Enter a task"
