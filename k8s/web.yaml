@@ -18,8 +18,8 @@ spec:
           image: arunkumarcarch/todo_web_image:b1dcd1e52fd23adbc8618ea53b6da74a56d8c85e
           imagePullPolicy: IfNotPresent
           ports:
-            #- containerPort: 80
-            - containerPort: 3000
+            - containerPort: 80
+            # - containerPort: 3000
           # env:
           #   - name: REACT_APP_API_URL
           #     value: "http://api.todo-lab.svc.cluster.local:8000"
