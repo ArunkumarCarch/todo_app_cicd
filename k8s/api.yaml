@@ -1,0 +1,64 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: api
+#   namespace: todo-lab
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: api
+#   template:
+#     metadata:
+#       labels:
+#         app: api
+#     spec:
+#       containers:
+#         - name: api
+#           image: arunkumarcarch/todo_api_2:v1.0.0
+#           imagePullPolicy: IfNotPresent
+#           ports:
+#             - containerPort: 8000
+#           envFrom:
+#             - configMapRef:
+#                 name: api-config
+#             - secretRef:
+#                 name: db-secret
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: todo-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: arunkumarcarch/todo_api_image:latest  # or your actual tag
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DB_HOST
+              value: "db-service"
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: POSTGRES_DB
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: POSTGRES_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: POSTGRES_PASSWORD
